@@ -10,6 +10,11 @@
         <span class="quiet">Posted by </span><%= p.user.username %>
         <small>at <%= p.created_at %></small>
       </p>
+      <p>
+        <span>
+          <%= link_to("Edit", edit_post_path(p.id)) %>
+        </span>
+      </p>
       <small>
         <span>
           <%= link_to("#{p.comments.size} comments", post_path(p)) %>
