@@ -1,16 +1,11 @@
 <div class="row">
   <div class="span8 well">
     <%= render post.categories %>
-    <h4><%= link_to post.title, post_path(p) %></h4>
+    <h4><%= link_to post.title, post_path(post) %></h4>
     <p><%= post.description %></p>
     <p>
       <span class="quiet">Posted by </span><%= post.user.username %>
       <small>at <%= post.created_at %></small>
-    </p>
-    <p>
-      <span>
-        <%= link_to("Edit", edit_post_path(post.id)) %>
-      </span>
     </p>
     <small>
       <span>

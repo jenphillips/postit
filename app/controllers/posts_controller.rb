@@ -21,6 +21,7 @@ class PostsController < ApplicationController
     # Post.create({title: title, url: url, description: description})
 
     @post = Post.new(post_params)
+    @post.user = User.first  # TODO:  Change once authentication is set up
 
     if @post.save
       flash[:notice] = "Your post was created."
