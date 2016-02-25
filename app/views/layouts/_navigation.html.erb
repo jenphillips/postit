@@ -21,12 +21,9 @@
 		<% end %>
 	</ul>
 </div>
-<div class="nav_item">
-	<%= link_to 'New Post', new_post_path, class: "btn btn-success btn-small" %>
-</div>
 <% if logged_in? %>
 	<div class="nav_item">
-		<li>Hi, <%= current_user.username %></li>
+		<%= link_to 'New Post', new_post_path, class: "btn btn-success btn-small" %>
 	</div>
 	<div class="nav_item">
 		<%= link_to 'Log out', logout_path, class: "btn btn-small" %>
