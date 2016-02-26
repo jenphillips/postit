@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
-	def index
-
-	end
+	before_action :set_user, only: [:show, :edit, :update]
+	before_action :require_same_user, only: [:edit, :update]
 
 	def show
 
@@ -23,9 +22,25 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def edit
+	end
+
+	def update
+		if @user.update(user_params)
+			flash[:notice] = "Profile updated successfully."
+			redirect_to user_path(@user)
+		else
+			render :edit
+		end
+	end
+
 	private
 	def user_params
 		params.require(:user).permit(:username, :password)
+	end
+
+	def set_user
+		@user = User.find(params[:id])
 	end
 
 end
